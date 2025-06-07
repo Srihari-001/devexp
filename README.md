@@ -1,12 +1,16 @@
 # devexp
 
-Tell me about yourself
+**Tell me about yourself:**
 I’m a DevOps Engineer with around 4 years of experience in cloud operations and DevOps. I began my career with Accenture, where I worked in a centralized CloudOps team managing cloud provisioning, incident response, and DR drills. In 2024, I transitioned to TCS as a DevOps Engineer, where I’m currently leading a critical migration project for a banking client — moving from OpenShift to Standard Chartered Kubernetes Engine (SKE).
 I specialize in tools like Azure DevOps, Docker, Kubernetes, Helm, Terraform, and Azure Cloud. I’ve built and optimized CI/CD pipelines, automated infrastructure with Terraform, and enabled secure deployments using HashiCorp Vault integration. I’ve also worked on database migrations, Ingress with TLS, and created custom BASH scripts to automate daily tasks.
-I hold AZ-104 and AZ-900 certifications, and I was honored with two “Best People” awards for impactful contributions. My future goal is to upskill in AI/ML and integrate those capabilities into intelligent DevOps automation.Project:
+I hold AZ-104 and AZ-900 certifications, and I was honored with two “Best People” awards for impactful contributions. My future goal is to upskill in AI/ML and integrate those capabilities into intelligent DevOps automation.
+
+**Project:**
+
 The Notification Hub is a critical microservices-based application responsible for dispatching real-time notifications like OTPs, SMS, push notifications, and soft tokens to millions of users. The application is built using Java, containerized via Docker, and deployed on OpenShift in the legacy setup and SKE in the new one using Helm charts and Azure DevOps CI/CD pipelines.
 From an architecture standpoint, we follow a standard ingress → service → pod model. External apps connect to NH via Solace message queues — these requests are processed and routed to downstream systems. For emails and SMS, we pass messages to the MDIS platform, which then relays them to the SMTP server and telco gateways. For push notifications, we integrate with FCM (Android) and APNS (iOS) using a secure proxy for outbound traffic.
 We’ve set up TLS ingress termination, network policies for access control, HPA for autoscaling, and Vault integration for secret management. Infra is provisioned through manifest files (compute_mf, firewall_mf, container_mf) and deployed via Azure DevOps.
+
 
 1. Migration from OpenShift to SKE & CI/CD Setup in Azure DevOps
     1. What challenges did you face while migrating workloads from OpenShift to SKE?
@@ -92,7 +96,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. What were the before/after metrics that proved 40% time savings?
     10. How did reduced deployment time affect your release cycle or SLAs?
 
-1. Solace MQ Integration for SMS & Email
+8. Solace MQ Integration for SMS & Email
     1. What is Solace, and how does it differ from Kafka or RabbitMQ?
     2. Can you explain how Solace topics and queues are used in your project?
     3. How did you configure Solace connectivity (truststore, keystore) from your app?
@@ -104,7 +108,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you test and validate end-to-end message flow in lower environments?
     10. Did you implement any monitoring or dead-letter queue strategy for failed messages?
 
- 2. Database Migration from Oracle to PostgreSQL
+9.  Database Migration from Oracle to PostgreSQL
     1. What were the key challenges while migrating from Oracle to PostgreSQL?
     2. How did you handle Oracle-specific functions or data types during migration?
     3. What tool(s) did you use for schema/data migration — ora2pg, DMS, etc.?
@@ -116,7 +120,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. Did you perform performance tuning for PostgreSQL after migration?
     10. How did you test connectivity from the SKE pods to private DB?
 
- 3. NGINX Ingress with TLS Termination & Routing
+10. NGINX Ingress with TLS Termination & Routing
     1. What is TLS termination and where did it happen in your architecture?
     2. How did you create and manage TLS certificates — manually or via cert-manager?
     3. How did you configure path-based routing in Ingress — can you give an example?
@@ -128,7 +132,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you test and validate the routing behavior across environments?
     10. Did you use Helm to deploy NGINX ingress and TLS resources?
 
- 4. Namespace, Firewall, and INC Provisioning via Manifests
+11. Namespace, Firewall, and INC Provisioning via Manifests
     1. What are the benefits of isolating environments by namespaces in Kubernetes?
     2. What did your compute_mf, firewall_mf, and network_mf manifest files contain?
     3. How were firewall rules implemented — was there a request workflow?
@@ -140,7 +144,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. Did you use Terraform or YAML for these manifests?
     10. How did you audit and monitor namespace resource usage?
 
- 5. Helm Chart Reusability Across Environments
+12. Helm Chart Reusability Across Environments
     1. What made your Helm charts reusable across environments?
     2. How did you manage values.yaml overrides per environment?
     3. What structure did you follow for your Helm chart directories (templates, charts, values)?
@@ -152,7 +156,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you structure Helm chart folders for microservices vs monolithic apps?
     10. How did Helm improve deployment consistency compared to plain YAMLs?
 
-6. Proxy Configuration for Outbound Restrictions
+13. Proxy Configuration for Outbound Restrictions
     1. What was the need for proxy implementation in your environment?
     2. How did you configure proxy settings in pod-level deployments?
     3. How did you whitelist certain outbound domains/IPs?
@@ -164,7 +168,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. Did the proxy affect performance or latency — how did you measure?
     10. How did you rotate or update proxy configurations across deployments?
 
-7. HCV & Library Integration in ADO Pipelines
+14. HCV & Library Integration in ADO Pipelines
 
     1. How did you authenticate ADO pipelines to HashiCorp Vault?
     2. Did you use Vault Agent Injector or direct API calls for secrets injection?
@@ -177,7 +181,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you audit secret access or detect failed secret retrievals?
     10. Did you cache secrets in pipelines, or pull them fresh every time?
 
- 8. HPA Using CPU Metrics for Resource Optimization
+15. HPA Using CPU Metrics for Resource Optimization
 
     1. How did you configure Horizontal Pod Autoscaler in your Kubernetes cluster?
     2. What metrics server or adapter did you use for CPU utilization?
@@ -191,7 +195,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     10. How did HPA affect cost, latency, or performance in production?
 
 
-1. Terraform-based Infra Provisioning with High Availability
+16. Terraform-based Infra Provisioning with High Availability
     1. What Terraform version and provider (e.g., AzureRM) did you use in this project?
     2. How did you ensure idempotency and avoid drift during Terraform deployments?
     3. How did you manage Terraform state — did you use remote backends like Azure Blob?
@@ -203,7 +207,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you validate your Terraform plan before applying it?
     10. What naming conventions or tagging strategy did you use for manageability?
 
- 2. Qualys Vulnerability Management & SLA Compliance
+17. Qualys Vulnerability Management & SLA Compliance
     1. What is Qualys and how did you integrate it into your Azure environment?
     2. What kinds of vulnerabilities were mostly found — OS-level, library-level, or network?
     3. How did you prioritize vulnerabilities — by CVSS score or by asset criticality?
@@ -215,7 +219,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. Did you integrate Qualys with ITSM tools like ServiceNow or Jira?
     10. How did you verify that a vulnerability was actually remediated?
 
-3. Disaster Recovery Strategy and RTO Optimization
+18. Disaster Recovery Strategy and RTO Optimization
     1. What does RTO mean and how is it calculated?
     2. What tools did you use to simulate a switchover event?
     3. What were the primary applications or services covered under DR?
@@ -227,7 +231,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. What was your failback strategy after a DR drill?
     10. What challenges did you face in syncing data/state across primary and DR sites?
 
-4. Application-level ASR (Azure Site Recovery)
+19. Application-level ASR (Azure Site Recovery)
     1. What is Azure Site Recovery and how does it work at a high level?
     2. For which workloads or app tiers did you enable ASR — VMs, DBs, app servers?
     3. How did you test failover and failback using ASR?
@@ -239,7 +243,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. What alerting or monitoring did you set up for ASR health?
     10. How did you document and train others on ASR usage?
 
-5. ADO + Azure Key Vault Integration for Secret Management
+20. ADO + Azure Key Vault Integration for Secret Management
     1. How did you configure Azure DevOps pipelines to access secrets from Azure Key Vault?
     2. What kind of secrets were stored — client IDs, secrets, passwords, tokens?
     3. Did you use Key Vault Task in YAML or ARM template with linked secrets?
@@ -251,7 +255,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How did you manage Key Vault across different environments (dev, test, prod)?
     10. What are some limitations of Azure Key Vault you faced during automation?
 
-6. Azure Vulnerability Management
+21. Azure Vulnerability Management
     1. What tools (besides Qualys) did you use for vulnerability detection?
     2. How did you manage vulnerability remediation across multiple subscriptions?
     3. What was your strategy for patching — automated, scheduled, or manual?
@@ -263,7 +267,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. What kinds of false positives did you face and how were they handled?
     10. Did you integrate vulnerability findings into security dashboards or compliance reports?
 
-7. Cross-functional Incident Troubleshooting
+22. Cross-functional Incident Troubleshooting
     1. How did your team track and manage incidents — Jira, ServiceNow, or other tools?
     2. What role did you play in the troubleshooting lifecycle — L1, L2, or L3?
     3. How did you ensure quick MTTR (Mean Time to Resolve)?
@@ -274,7 +278,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     8. Can you give an example of a high-priority incident and how you resolved it?
     9. How did you prevent recurrence of similar issues?
     10. How was the success of incident response measured and reviewed?
-8. Agile Collaboration in Stand-ups, Sprints
+23. Agile Collaboration in Stand-ups, Sprints
     1. What was the team structure in your Agile project — devs, testers, ops?
     2. How often did you participate in stand-ups and what was your typical update?
     3. How were DevOps tasks planned and tracked in sprints?
@@ -286,7 +290,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. Can you give an example of process improvement you suggested in a retro?
     10. What KPIs or metrics were tracked for DevOps sprint tasks?
 
-9. Azure Infra Provisioning via Terraform
+24. Azure Infra Provisioning via Terraform
     1. What resources did you provision in Azure — AKS, VM, VNet, NSG, etc.?
     2. How did you ensure environment isolation — separate VNet or subscriptions?
     3. What kind of security controls did you configure using Terraform?
@@ -298,7 +302,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. What strategies did you use to reuse modules across multiple apps?
     10. How was access managed for teams who wanted to make Terraform changes?
 
-10. Terraform Creation & Infra Provisioning)
+25. Terraform Creation & Infra Provisioning)
     1. Write a Terraform file to create an Azure Virtual Machine with a public IP and NSG.
     2. Add a Terraform resource to attach a disk to the VM you created above.
     3. How do you use Terraform variables and output in the VM creation file? Show an example.
@@ -310,7 +314,7 @@ We’ve set up TLS ingress termination, network policies for access control, HPA
     9. How do you reference existing resource group and VNET in Terraform without recreating them?
     10. Show how to write a conditional resource block (e.g., create NSG only for prod).
 
-PostgreSQL Scripts (Database & Schema Tasks)
+26. PostgreSQL Scripts (Database & Schema Tasks)
     1. Write a SQL script to create a PostgreSQL database, schema, and a table with constraints.
     2. Create a notify_user table with columns for ID, email, phone, and notification type.
     3. Write a script to migrate data from Oracle to PostgreSQL (e.g., using COPY with CSV).
@@ -322,7 +326,7 @@ PostgreSQL Scripts (Database & Schema Tasks)
     9. Explain how you tested data integrity post-migration.
     10. Write a script to delete test data older than 7 days from multiple tables.
 
-Bash Scripts (Automation & NH API Performance Testing)
+27. Bash Scripts (Automation & NH API Performance Testing)
     1. Write a Bash script to hit NH's /notify/send endpoint in a loop for 5000 requests.
     2. Add error handling and logging to the above script.
     3. Write a script to collect pod logs for all pods in a given namespace.
@@ -334,7 +338,7 @@ Bash Scripts (Automation & NH API Performance Testing)
     9. Schedule a script via cron that exports database size to a file every hour.
     10. Script to clean up Helm releases, dangling images, and unused PVCs.
 
-Azure DevOps CI/CD Pipeline (YAML)
+28. Azure DevOps CI/CD Pipeline (YAML)
     1. Write an Azure DevOps pipeline YAML to:
         ○ Build a Java app using Maven
         ○ Build Docker image
@@ -345,14 +349,14 @@ Azure DevOps CI/CD Pipeline (YAML)
     4. Split your pipeline into stages: build, test, deploy with dependsOn.
     5. How do you use template YAMLs in ADO for DRY principle? Show an example.
 
-Helm Charts (Ingress, Service, Deployment, Secrets)
+29. Helm Charts (Ingress, Service, Deployment, Secrets)
     1. Write a Helm deployment.yaml for NH pod with configurable image & replica count.
     2. Draft a service.yaml with port and selector details.
     3. Write an ingress.yaml that supports TLS and /notify path routing.
     4. Create a secrets.yaml template that accepts base64 values via values.yaml.
     5. Provide sample values-dev.yaml and values-prod.yaml files with different replica counts and Solace URLs.
 
-Dockerfile (Multi-stage Build for Size Optimization)
+30. Dockerfile (Multi-stage Build for Size Optimization)
     1. Write a multi-stage Dockerfile to build a Spring Boot app and keep the final image minimal.
     2. Explain why you use multi-stage builds and how it helped you reduce image size.
     3. How do you handle .jks file and keystore setup securely in your Docker image?
