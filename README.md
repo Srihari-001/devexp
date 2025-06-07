@@ -1,6 +1,7 @@
 # devexp
 
 **Tell me about yourself:**
+
 I’m a DevOps Engineer with around 4 years of experience in cloud operations and DevOps. I began my career with Accenture, where I worked in a centralized CloudOps team managing cloud provisioning, incident response, and DR drills. In 2024, I transitioned to TCS as a DevOps Engineer, where I’m currently leading a critical migration project for a banking client — moving from OpenShift to Standard Chartered Kubernetes Engine (SKE).
 I specialize in tools like Azure DevOps, Docker, Kubernetes, Helm, Terraform, and Azure Cloud. I’ve built and optimized CI/CD pipelines, automated infrastructure with Terraform, and enabled secure deployments using HashiCorp Vault integration. I’ve also worked on database migrations, Ingress with TLS, and created custom BASH scripts to automate daily tasks.
 I hold AZ-104 and AZ-900 certifications, and I was honored with two “Best People” awards for impactful contributions. My future goal is to upskill in AI/ML and integrate those capabilities into intelligent DevOps automation.
